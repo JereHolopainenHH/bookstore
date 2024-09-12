@@ -25,6 +25,14 @@ public class BookstoreApplication {
 			Book b5 = new Book("Harry Potter ja Feeniksin kilta", "J.K.Rowling", 2003, "978-0747551003", 25.00);
 			Book b6 = new Book("Harry Potter ja puoliverinen prinssi", "J.K.Rowling", 2005, "978-0747581086", 25.00);
 			Book b7 = new Book("Harry Potter ja kuoleman varjelukset", "J.K.Rowling", 2007, "978-0545139700", 30.00);
+
+			repository.save(b1);
+			repository.save(b2);
+			repository.save(b3);
+			repository.save(b4);
+			repository.save(b5);
+			repository.save(b6);
+			repository.save(b7);
 		};
 	}
 }
