@@ -31,21 +31,31 @@ public class BookController {
         return "booklist";
     }
 
+    // http://localhost:8080/booklist/add
     @GetMapping("/booklist/add")
     public String getBookForm(Model model) {
         model.addAttribute("book", new Book());
         return "addbook";
     }
 
+    // save book
     @PostMapping("/booklist/save")
     public String saveBook(Book book) {
         repository.save(book);
         return "redirect:/booklist";
     }
 
+    // delete book
     @GetMapping("/booklist/delete/{id}")
     public String deleteBook(@PathVariable("id") Long id) {
         repository.deleteById(id);
         return "redirect:/booklist";
+    }
+
+    // show editing page
+    @GetMapping("/booklist/edit/{id}")
+    public String editBook(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("book", repository.findById(id));
+        return "editbook";
     }
 }
