@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import hh.sof03.bookstore.domain.Book;
@@ -42,4 +43,9 @@ public class BookController {
         return "redirect:/booklist";
     }
 
+    @GetMapping("/booklist/delete/{id}")
+    public String deleteBook(@PathVariable("id") Long id) {
+        repository.deleteById(id);
+        return "redirect:/booklist";
+    }
 }
