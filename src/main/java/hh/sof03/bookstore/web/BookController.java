@@ -13,8 +13,11 @@ import hh.sof03.bookstore.repository.BookRepository;
 @Controller
 public class BookController {
 
-    // http://localhost:8080/index
+    // inject BookRepository
+    @Autowired
+    private BookRepository repository;
 
+    // http://localhost:8080/index
     // handle GET-request for /index
     @GetMapping("/index")
     public String index() {
@@ -22,8 +25,6 @@ public class BookController {
     }
 
     // http://localhost:8080/booklist
-    @Autowired
-    private BookRepository repository;
 
     @GetMapping("/booklist")
     public String getBooklist(Model model) {
