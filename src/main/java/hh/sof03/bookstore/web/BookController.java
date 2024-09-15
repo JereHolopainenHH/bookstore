@@ -59,4 +59,11 @@ public class BookController {
         model.addAttribute("book", repository.findById(id));
         return "editbook";
     }
+
+    // edit book
+    @PostMapping("/booklist/edit")
+    public String editBook(Book book) {
+        repository.save(book);
+        return "redirect:/booklist";
+    }
 }
