@@ -32,7 +32,7 @@ public class BookController {
 
     // http://localhost:8080/booklist/add
     @GetMapping("/booklist/add")
-    public String getBookForm(Model model) {
+    public String getAddForm(Model model) {
         model.addAttribute("book", new Book());
         return "addbook";
     }
@@ -53,7 +53,7 @@ public class BookController {
 
     // show editing page
     @GetMapping("/booklist/edit/{id}")
-    public String editBook(@PathVariable("id") Long id, Model model) {
+    public String getEditForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("book", repository.findById(id));
         return "editbook";
     }
