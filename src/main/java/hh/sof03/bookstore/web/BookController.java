@@ -18,14 +18,12 @@ public class BookController {
     private BookRepository repository;
 
     // http://localhost:8080/index
-    // handle GET-request for /index
     @GetMapping("/index")
     public String index() {
         return "index";
     }
 
     // http://localhost:8080/booklist
-
     @GetMapping("/booklist")
     public String getBooklist(Model model) {
         model.addAttribute("booklist", repository.findAll());
@@ -46,7 +44,7 @@ public class BookController {
         return "redirect:/booklist";
     }
 
-    // delete book
+    // delete book by id
     @GetMapping("/booklist/delete/{id}")
     public String deleteBook(@PathVariable("id") Long id) {
         repository.deleteById(id);
