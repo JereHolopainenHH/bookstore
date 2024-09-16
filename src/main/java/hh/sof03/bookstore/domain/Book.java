@@ -1,11 +1,20 @@
 package hh.sof03.bookstore.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String title;
     private String author;
-    private Integer publicationYear;
     private String isbn;
+    private Integer publicationYear;
     private Double price;
 
     public Book(String title, String author, Integer publicationYear, String isbn, Double price) {
@@ -17,11 +26,14 @@ public class Book {
     }
 
     public Book() {
-        this.title = null;
-        this.author = null;
-        this.publicationYear = null;
-        this.isbn = null;
-        this.price = null;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -40,14 +52,6 @@ public class Book {
         this.author = author;
     }
 
-    public int getPublicationYear() {
-        return publicationYear;
-    }
-
-    public void setPublicationYear(int publicationYear) {
-        this.publicationYear = publicationYear;
-    }
-
     public String getIsbn() {
         return isbn;
     }
@@ -56,18 +60,26 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public double getPrice() {
+    public Integer getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(Integer publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
     @Override
     public String toString() {
-        return "Book [title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + ", isbn=" + isbn
-                + ", price=" + price + "]";
+        return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", publicationYear="
+                + publicationYear + ", price=" + price + "]";
     }
 
 }
