@@ -43,6 +43,8 @@ public class BookstoreApplication {
 			cRepository.save(c1);
 			cRepository.save(c2);
 			cRepository.save(c3);
+
+			System.out.println("Categories: " + cRepository.findAll());
 		};
 	}
 }
