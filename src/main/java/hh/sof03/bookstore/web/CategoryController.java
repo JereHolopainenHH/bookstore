@@ -31,7 +31,7 @@ public class CategoryController {
     }
 
     // save new category
-    @PostMapping("/category/save")
+    @PostMapping("/categorylist/save")
     public String saveCategory(Category category) {
         repository.save(category);
         return "redirect:/categorylist";
