@@ -25,7 +25,7 @@ public class CategoryController {
     // http://localhost:8080/categorylist/add
     @GetMapping("/categorylist/add")
     public String getAddForm(Model model) {
-        model.addAttribute(new Category());
+        model.addAttribute("category", new Category());
         return "addcategory";
     }
 
