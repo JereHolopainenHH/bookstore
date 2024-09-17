@@ -18,7 +18,8 @@ public class CategoryController {
 
     // http://localhost:8080/categorylist
     @GetMapping("/categorylist")
-    public String getCategoryList() {
+    public String getCategoryList(Model model) {
+        model.addAttribute("categorylist", repository.findAll());
         return "categorylist";
     }
 
