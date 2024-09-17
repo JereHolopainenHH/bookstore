@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import hh.sof03.bookstore.domain.Book;
+import hh.sof03.bookstore.domain.Category;
 import hh.sof03.bookstore.repository.BookRepository;
+import hh.sof03.bookstore.repository.CategoryRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -16,7 +18,7 @@ public class BookstoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(BookRepository repository) {
+	public CommandLineRunner demo(BookRepository bRepository, CategoryRepository cRepository) {
 		return (args) -> {
 			Book b1 = new Book("Harry Potter ja viisasten kivi", "J.K.Rowling", 1997, "978-0747532699", 20.00);
 			Book b2 = new Book("Harry Potter ja salaisuuksien kammio", "J.K.Rowling", 1998, "978-0747538493", 20.00);
@@ -26,13 +28,21 @@ public class BookstoreApplication {
 			Book b6 = new Book("Harry Potter ja puoliverinen prinssi", "J.K.Rowling", 2005, "978-0747581086", 25.00);
 			Book b7 = new Book("Harry Potter ja kuoleman varjelukset", "J.K.Rowling", 2007, "978-0545139700", 30.00);
 
-			repository.save(b1);
-			repository.save(b2);
-			repository.save(b3);
-			repository.save(b4);
-			repository.save(b5);
-			repository.save(b6);
-			repository.save(b7);
+			bRepository.save(b1);
+			bRepository.save(b2);
+			bRepository.save(b3);
+			bRepository.save(b4);
+			bRepository.save(b5);
+			bRepository.save(b6);
+			bRepository.save(b7);
+
+			Category c1 = new Category("Scifi");
+			Category c2 = new Category("Horror");
+			Category c3 = new Category("Fantasy");
+
+			cRepository.save(c1);
+			cRepository.save(c2);
+			cRepository.save(c3);
 		};
 	}
 }
