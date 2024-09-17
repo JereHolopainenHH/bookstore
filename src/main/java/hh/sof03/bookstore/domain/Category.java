@@ -10,24 +10,22 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private Long categodyId;
+    private Long categoryId;
     private String name;
 
-    public Category(Long categodyId, String name) {
-        this.categodyId = categodyId;
+    public Category(String name) {
         this.name = name;
     }
 
     public Category() {
     }
 
-    public Long getCategodyId() {
-        return categodyId;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategodyId(Long categodyId) {
-        this.categodyId = categodyId;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -40,7 +38,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category [categodyId=" + categodyId + ", name=" + name + "]";
+        return "Category [categoryId=" + categoryId + ", name=" + name + "]";
     }
 
 }
