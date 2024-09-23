@@ -17,6 +17,12 @@
         <label for="author">Author</label>
         <input type="text" id="author" th:field="*{author}">
 
+        <label for="category">Category</label>
+        <select name="cateory" id="category" th:field="*{category}">
+            <option th:each="category : ${categories}" th:value="${category.categoryId}" th:text="${category.name}">
+            </option>
+        </select>
+
         <label for="publicationYear">Year</label>
         <input type="text" id="publicationYear" th:field="*{publicationYear}">
 
