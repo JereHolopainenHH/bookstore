@@ -20,14 +20,6 @@ public class BookstoreApplication {
 	@Bean
 	public CommandLineRunner demo(BookRepository bRepository, CategoryRepository cRepository) {
 		return (args) -> {
-			Book b1 = new Book("Harry Potter ja viisasten kivi", "J.K.Rowling", 1997, "978-0747532699", 20.00, null);
-			Book b2 = new Book("Harry Potter ja salaisuuksien kammio", "J.K.Rowling", 1998, "978-0747538493", 20.00, null);
-			Book b3 = new Book("Harry Potter ja Azkabanin vanki", "J.K.Rowling", 1999, "978-0747542155", 20.00, null);
-
-			bRepository.save(b1);
-			bRepository.save(b2);
-			bRepository.save(b3);
-
 			Category c1 = new Category("Scifi");
 			Category c2 = new Category("Horror");
 			Category c3 = new Category("Fantasy");
@@ -35,6 +27,14 @@ public class BookstoreApplication {
 			cRepository.save(c1);
 			cRepository.save(c2);
 			cRepository.save(c3);
+
+			Book b2 = new Book("Dyyni (Dune)", "Drank Herbert", 1965, "978-0-441-17271-9", 12.99, c1);
+			Book b3 = new Book("Hohto (The Shining)", "Stephen King", 1977, "978-951-31-0640-9", 15.90, c2);
+			Book b1 = new Book("Harry Potter ja viisasten kivi", "J.K.Rowling", 1997, "978-0747532699", 20.00, c3);
+			bRepository.save(b1);
+			bRepository.save(b2);
+			bRepository.save(b3);
+
 
 			System.out.println("Categories: " + cRepository.findAll());
 		};
