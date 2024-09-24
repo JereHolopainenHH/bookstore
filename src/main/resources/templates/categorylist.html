@@ -4,25 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category List</title>
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <th:block th:insert="~{fragments.html :: head(title='Categorylist')}"></th:block>
 </head>
 
 <body>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Category</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="category : ${categorylist}">
-                <td th:text="${category.name}"></td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="#" th:href="@{/categorylist/add}">Add Category</a>
+    <nav th:replace="~{fragments.html :: navbar}"></nav>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="category : ${categorylist}">
+                    <td th:text="${category.name}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

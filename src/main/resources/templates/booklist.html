@@ -4,37 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booklist</title>
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <th:block th:insert="~{fragments.html :: head(title='Booklist')}"></th:block>
 </head>
 
 <body>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Category</th>
-                <th>ISBN</th>
-                <th>Year</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="book : ${booklist}">
-                <td th:text="${book.title}"></td>
-                <td th:text="${book.author}"></td>
-                <td th:text="${book.category.name}"></td>
-                <td th:text="${book.isbn}"></td>
-                <td th:text="${book.publicationYear}"></td>
-                <td th:text="'€' + ${book.price}"></td>
-                <td><a href="#" th:href="@{/booklist/delete/{id}(id=${book.id})}" class="btn btn-danger">delete</a></td>
-                <td><a href="#" th:href="@{/booklist/edit/{id}(id=${book.id})}" class="btn btn-primary">edit</a></td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="#" th:href="@{/booklist/add}">Add Book</a>
+    <nav th:replace="~{fragments.html :: navbar}"></nav>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>ISBN</th>
+                        <th>Year</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="book : ${booklist}">
+                        <td th:text="${book.title}"></td>
+                        <td th:text="${book.author}"></td>
+                        <td th:text="${book.category.name}"></td>
+                        <td th:text="${book.isbn}"></td>
+                        <td th:text="${book.publicationYear}"></td>
+                        <td th:text="'€' + ${book.price}"></td>
+                        <td><a href="#" th:href="@{/booklist/delete/{id}(id=${book.id})}"
+                                class="btn btn-danger">delete</a>
+                        </td>
+                        <td><a href="#" th:href="@{/booklist/edit/{id}(id=${book.id})}" class="btn btn-primary">edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
