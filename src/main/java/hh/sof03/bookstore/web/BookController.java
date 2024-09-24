@@ -60,6 +60,7 @@ public class BookController {
     @GetMapping("/booklist/edit/{id}")
     public String getEditForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("book", repository.findById(id));
+        model.addAttribute("categories", cRepository.findAll());
         return "editbook";
     }
 
