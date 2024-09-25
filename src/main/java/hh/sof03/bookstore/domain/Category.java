@@ -3,6 +3,8 @@ package hh.sof03.bookstore.domain;
 import jakarta.persistence.*;
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Category {
 
@@ -12,6 +14,7 @@ public class Category {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    @JsonIgnore
     private List<Book> books = new ArrayList<>();
 
     public Category(String name) {
